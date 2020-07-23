@@ -1,5 +1,5 @@
 # jira-get-issue
-![.github/workflows/main.yml](https://github.com/TheRealWaldo/jira-get-issue/workflows/.github/workflows/main.yml/badge.svg)
+![Tests](https://github.com/TheRealWaldo/jira-get-issue/workflows/Tests/badge.svg)
 
 GitHub Action to allow retrieval of Jira Issue Key from a String.  Also writes that issue key to $HOME/jira/config.yml and $HOME/.jira.d/config.yml so that other Jira tools will also work after this action is run.
 
