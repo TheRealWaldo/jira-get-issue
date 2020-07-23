@@ -15,9 +15,11 @@ Will fail if no Jira Issue Key is found.
 
 ## Example usage
 
+```
 uses: TheRealWaldo/jira-get-issue@v0.0.1
 with:
   search-string: 'ABC-123 Find the Jira Issue'
+```
 
 ## Outputs
 
