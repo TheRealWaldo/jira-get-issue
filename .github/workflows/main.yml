@@ -60,3 +60,8 @@ jobs:
       if: ${{ steps.run-action-4.outputs.issue-key != 'ABC-123'}}
       run: |
         exit 1
+
+    - name: Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npx release-it --ci --dry-run
