@@ -1,0 +1,12 @@
+name: Get Jira Issue Key
+description: GitHub Action to allow retrieval of Jira Issue Key from a String
+inputs:
+  search-string:
+      description: String to search for Jira Issue Key
+      required: true
+outputs:
+  issue-key:
+    description: Jira Issue Key if found, empty string if not
+runs:
+  using: node12
+  main: dist/index.js
