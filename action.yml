@@ -1,5 +1,8 @@
 name: Get Jira Issue Key
 description: GitHub Action to allow retrieval of Jira Issue Key from a String
+branding:
+  icon: search
+  color: blue
 inputs:
   search-string:
       description: String to search for Jira Issue Key
