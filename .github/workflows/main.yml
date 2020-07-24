@@ -60,3 +60,16 @@ jobs:
       if: ${{ steps.run-action-4.outputs.issue-key != 'ABC-123'}}
       run: |
         exit 1
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2.1.1
+      with:
+        node-version: 12
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Test Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npx release-it --ci --dry-run
