@@ -24,4 +24,4 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx release-it --ci --dry-run
+        run: npx release-it --ci

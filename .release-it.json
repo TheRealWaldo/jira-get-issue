@@ -7,9 +7,9 @@
   },
   "github": {
     "release": true,
-    "assets": [ "dist/*.js", "README.md", "action.yml" ],
     "draft": true,
-    "releaseName": "v${version}"
+    "releaseName": "v${version}",
+    "tokenRef": "GITHUB_TOKEN"
   },
   "hooks": {
     "after:git:release": "if [ \"${isPreRelease}\" != \"true\" ]; then git tag -f latest && git push -f origin latest; fi",
