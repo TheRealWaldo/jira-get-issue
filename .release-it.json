@@ -4,5 +4,13 @@
   },
   "npm": {
     "publish": false
+  },
+  "plugins": {
+    "@release-it/bumper": {
+      "out": {
+        "file": "readme.md",
+        "type": "text/plain"
+      }
+    }
   }
 }
