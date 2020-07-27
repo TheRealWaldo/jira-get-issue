@@ -24,7 +24,7 @@
     "esrever": "^0.2.0"
   },
   "devDependencies": {
-    "@release-it/bumper": "^1.4.0",
+    "@release-it/bumper": "^1.4.1",
     "eslint": "^7.5.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
