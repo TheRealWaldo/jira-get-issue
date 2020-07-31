@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "release-it"
+    "lint": "npx eslint --cache src/*.js",
+    "lint-fix": "npx eslint --fix --cache src/*.js",
+    "build": "npx ncc build src/*.js -m",
+    "lint-build": "npm run lint-staged && npm run build"
   },
   "repository": {
     "type": "git",
@@ -13,7 +16,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "SEE LICENSE IN LICENSE",
   "bugs": {
     "url": "https://github.com/TheRealWaldo/jira-get-issue/issues"
   },
@@ -24,10 +27,17 @@
     "esrever": "^0.2.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.1",
     "@release-it/bumper": "^1.4.1",
+    "@release-it/conventional-changelog": "^1.1.4",
+    "@zeit/ncc": "^0.22.3",
     "eslint": "^7.5.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "prettier": "2.0.5",
     "release-it": "^13.6.6"
   }

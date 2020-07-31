@@ -1,28 +1,52 @@
 {
   "git": {
-    "commitMessage": "Craft v${version} release",
     "requireCleanWorkingDir": true,
+    "tag": false,
+    "tagName": "v${version}",
     "tagAnnotation": "Release v${version}",
-    "tagName": "v${version}"
+    "commit": true,
+    "commitMessage": "chore(release): v${version}",
+    "push": true
   },
   "github": {
     "release": true,
-    "draft": true,
-    "releaseName": "v${version}",
-    "tokenRef": "GITHUB_TOKEN"
+    "releaseName": "Release v${version}",
+    "draft": true
   },
   "hooks": {
-    "after:git:release": "if [ \"${isPreRelease}\" != \"true\" ]; then git tag -f latest && git push -f origin latest; fi",
-    "after:release": "echo Successfully created a release draft v${version} for ${repo.repository}. Please add release notes when necessary and publish it!"
+    "after:bump": "npm run lint-fix && npm run build",
+    "after:release": "echo Successfully bumped release to v${version} for ${repo.repository}."
   },
   "npm": {
-    "publish": false
+    "publish": false,
+    "ignoreVersion": true
   },
   "plugins": {
     "@release-it/bumper": {
       "out": {
-        "file": "readme.md",
+        "file": "README.md",
         "type": "text/plain"
+      }
+    },
+    "@release-it/conventional-changelog": {
+      "preset": {
+        "name": "conventionalcommits",
+        "issuePrefixes": ["GJIA-"],
+        "issueUrlFormat": "https://nowhereradio.atlassian.net/browse/{{prefix}}{{id}}",
+        "header": "Release notes",
+        "types": [
+          {"type": "feat", "section": "Features"},
+          {"type": "fix", "section": "Bug Fixes"},
+          {"type": "chore", "hidden": true},
+          {"type": "docs", "hidden": true},
+          {"type": "style", "hidden": true},
+          {"type": "refactor", "hidden": true},
+          {"type": "perf", "section": "Performance Enhancements"},
+          {"type": "test", "hidden": true},
+          {"type": "build", "hidden": true},
+          {"type": "ci", "hidden": true},
+          {"type": "revert", "hidden": true}
+        ]
       }
     }
   }
