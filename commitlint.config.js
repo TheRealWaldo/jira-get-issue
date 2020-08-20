@@ -6,6 +6,7 @@ module.exports = {
     },
   },
   rules: {
-    'references-empty': [2, 'never'],
+    'references-empty': [1, 'never'],
+    'body-max-line-length': [0, 'always', 'Infinity'],
   },
 };
