@@ -29,6 +29,6 @@ updates:
       timezone: "America/Edmonton"
       time: "09:00"
     commit-message:
-      prefix  : “chore(dependency): “
+      prefix: "chore(dependency): "
     assignees:
       - TheRealWaldo
