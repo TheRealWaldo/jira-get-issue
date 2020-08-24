@@ -7,7 +7,7 @@ updates:
       timezone: "America/Edmonton"
       time: "09:00"
     commit-message:
-      prefix: "ci(dependency): "
+      prefix: "ci(dep): "
     assignees:
       - TheRealWaldo
     
@@ -18,7 +18,7 @@ updates:
       timezone: "America/Edmonton"
       time: "09:00"
     commit-message:
-      prefix: "ci(dependency): "
+      prefix: "ci(dep): "
     assignees:
       - TheRealWaldo  
 
@@ -29,6 +29,6 @@ updates:
       timezone: "America/Edmonton"
       time: "09:00"
     commit-message:
-      prefix: "chore(dependency): "
+      prefix: "chore(dep): "
     assignees:
       - TheRealWaldo
