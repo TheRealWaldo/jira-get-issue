@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/TheRealWaldo/jira-get-issue#readme",
   "dependencies": {
-    "@actions/core": "^1.2.5",
+    "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
     "esrever": "^0.2.0"
   },
