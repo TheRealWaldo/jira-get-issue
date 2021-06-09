@@ -1,6 +1,6 @@
 {
   "name": "jira-get-issue",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "GitHub Action to allow retrieval of Jira Issue Key from a String",
   "main": "index.js",
   "scripts": {
