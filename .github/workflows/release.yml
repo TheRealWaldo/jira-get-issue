@@ -38,7 +38,13 @@ jobs:
         rebase-onto: master
 
     - name: Create pull request
-      uses: repo-sync/pull-request@v2.6
+      uses: TheRealWaldo/pull-request@v0.1.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.AUTO_PAT }}
       with:
-        github_token: ${{ secrets.AUTO_PAT }}
-        source_branch: release
+        draft: true
+        title: "chore(release): ${{steps.bump-version.outputs.version}}"
+        body: ${{steps.bump-version.outputs.changelog}}
+        base: master
+        head: release
+        assignee: TheRealWaldo
