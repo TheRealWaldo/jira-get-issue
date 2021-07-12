@@ -9,7 +9,6 @@ jobs:
   release-action:
     runs-on: ubuntu-latest
     name: Release jira-git-issue action
-    if: "github.ref == 'refs/heads/master' && !contains(toJSON(github.event.commits.*.message), 'chore(release)')"
     steps:
 
     - name: Setup node.js
@@ -27,8 +26,9 @@ jobs:
       run: npm ci
 
     - name: Bump version
+      if: "github.ref == 'refs/heads/master' && !contains(toJSON(github.event.commits.*.message), 'chore(release)')"
       id: bump-version
-      uses: TheRealWaldo/release-it@v0.5.0
+      uses: TheRealWaldo/release-it@v0.5.1
       with:
         github-token: ${{ secrets.AUTO_PAT }}
         github-username: TRW-bot
@@ -37,15 +37,37 @@ jobs:
         create-branch: release
         auto-resolve-command: npm run build && git add dist/**
         rebase-onto: master
+        no-increment: false
+        json-opts: '{"github": {"release": false}}'
 
     - name: Create pull request
+      if: "github.ref == 'refs/heads/master' && !contains(toJSON(github.event.commits.*.message), 'chore(release)')"
       uses: TheRealWaldo/pull-request@v0.1.0
       env:
         GITHUB_TOKEN: ${{ secrets.AUTO_PAT }}
       with:
         draft: true
-        title: "chore(release): ${{steps.bump-version.outputs.version}}"
+        title: "chore(release): v${{steps.bump-version.outputs.version}}"
         body: ${{steps.bump-version.outputs.changelog}}
         base: master
         head: release
         assignee: TheRealWaldo
+
+    - name: Release
+      if: "github.ref == 'refs/heads/master' && contains(toJSON(github.event.commits.*.message), 'chore(release)')"
+      uses: TheRealWaldo/release-it@v0.5.1
+      with:
+        no-increment: true
+        github-token: ${{ secrets.AUTO_PAT }}
+        json-opts: >
+          {
+            "github": { "release": true },
+            "git": { "tag": true, "commit": false },
+            "plugins": {
+               "@release-it/bumper": {
+                 "in": { "file": "VERSION", "type": "text/plain" }
+               },
+               "@release-it/conventional-changelog": { "ignoreRecommendedBump": true }
+            }
+          }
+
