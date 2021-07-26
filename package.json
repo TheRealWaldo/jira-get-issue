@@ -39,6 +39,6 @@
     "husky": "^7.0.1",
     "lint-staged": "^11.1.1",
     "prettier": "2.3.2",
-    "release-it": "^14.10.0"
+    "release-it": "^14.10.1"
   }
 }
