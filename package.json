@@ -27,7 +27,7 @@
     "esrever": "^0.2.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.0.2",
+    "@commitlint/cli": "^16.0.3",
     "@commitlint/config-conventional": "^16.0.0",
     "@release-it/bumper": "^3.0.1",
     "@release-it/conventional-changelog": "^4.1.0",
