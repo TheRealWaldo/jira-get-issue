@@ -16,7 +16,7 @@ Will fail if no Jira Issue Key is found.
 ## Example usage
 
 ```
-uses: TheRealWaldo/jira-get-issue@v0.0.7
+uses: TheRealWaldo/jira-get-issue@v0.0.8
 with:
   search-string: 'ABC-123 Find the Jira Issue'
 ```
