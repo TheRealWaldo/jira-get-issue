@@ -29,8 +29,8 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
-    "@release-it/bumper": "^4.0.2",
-    "@release-it/conventional-changelog": "^6.0.0",
+    "@release-it/bumper": "^5.0.0",
+    "@release-it/conventional-changelog": "^7.0.0",
     "@vercel/ncc": "^0.36.1",
     "eslint": "^8.44.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -39,6 +39,6 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "prettier": "3.0.0",
-    "release-it": "^15.11.0"
+    "release-it": "^16.1.0"
   }
 }
