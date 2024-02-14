@@ -29,3 +29,18 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       uses: wagoid/commitlint-github-action@v5.4.5
+
+  tests:
+    uses: ./.github/workflows/test.yml
+    needs: [validate-pull-request]
+
+  codeql:
+    uses: ./.github/workflows/codeql-analysis.yml
+
+  dependabot-merge:
+    uses: ./.github/workflows/dependabot-merge.yml
+    needs: [validate-pull-request,tests,codeql]
+    secrets: inherit
+    permissions:
+      pull-requests: write
+      contents: write
