@@ -26,7 +26,7 @@ jobs:
       run: npm ci
 
     - name: Bump version
-      if: "github.ref == 'refs/heads/master' && !contains(toJSON(github.event.commits.*.message), 'chore(release)')"
+      if: "${{ github.ref }} == 'refs/heads/master' && !contains(toJSON(github.event.commits.*.message), 'chore(release)')"
       id: bump-version
       uses: TheRealWaldo/release-it@v0.7.2
       with:
@@ -41,7 +41,7 @@ jobs:
         json-opts: '{"github": {"release": false}}'
 
     - name: Create pull request
-      if: "github.ref == 'refs/heads/master' && !contains(toJSON(github.event.commits.*.message), 'chore(release)')"
+      if: "${{ github.ref }} == 'refs/heads/master' && !contains(toJSON(github.event.commits.*.message), 'chore(release)')"
       uses: TheRealWaldo/pull-request@v0.2.2
       env:
         GITHUB_TOKEN: ${{ secrets.AUTO_PAT }}
@@ -54,7 +54,7 @@ jobs:
         assignee: TheRealWaldo
 
     - name: Release
-      if: "github.ref == 'refs/heads/master' && contains(toJSON(github.event.commits.*.message), 'chore(release)')"
+      if: "${{ github.ref }} == 'refs/heads/master' && contains(toJSON(github.event.commits.*.message), 'chore(release)')"
       uses: TheRealWaldo/release-it@v0.7.2
       with:
         no-increment: true
@@ -70,4 +70,3 @@ jobs:
                "@release-it/conventional-changelog": { "ignoreRecommendedBump": true }
             }
           }
-
