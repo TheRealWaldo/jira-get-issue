@@ -62,7 +62,7 @@ jobs:
         exit 1
 
     - name: Setup Node.js
-      uses: actions/setup-node@v4.0.3
+      uses: actions/setup-node@v4.0.4
       with:
         node-version: 18
 
