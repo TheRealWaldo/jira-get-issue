@@ -30,7 +30,7 @@
     "@commitlint/cli": "^20.2.0",
     "@commitlint/config-conventional": "^20.2.0",
     "@release-it/bumper": "^7.0.5",
-    "@release-it/conventional-changelog": "^10.0.3",
+    "@release-it/conventional-changelog": "^10.0.4",
     "@vercel/ncc": "^0.38.4",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
